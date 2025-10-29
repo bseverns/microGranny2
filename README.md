@@ -22,22 +22,20 @@ You'll want the same setup Bastl used:
 
 Flash routine:
 
-1. Install the SdFat and WaveRP libraries into your Arduino environment.
-2. Drop the `mg2HW` library in alongside them so the hardware abstraction compiles.
-3. Open `microGranny2.ino` in the Arduino IDE – it automatically sucks in the companion `.ino` tabs.
-4. Select **Arduino Uno** (or whatever AVR Bastl board definition you're using), choose the correct serial port, and hit Upload.
+1. **PlatformIO heads-up:** the repo now ships with a ready-to-run `platformio.ini`.  Install PlatformIO, clone the repo, and run `platformio run` to build or `platformio run --target upload` to flash.  Drop Bastl's `mg2HW` sources under `lib/mg2HW/` (or tweak `lib_deps`) so the hardware layer resolves.
+2. **Arduino IDE traditionalists:** install the SdFat and WaveRP libraries, park `mg2HW` in your libraries folder, then open `src/microGranny2.ino` and upload as usual.  The IDE still slurps in the companion `.ino` tabs because they're sitting right next to the main sketch inside `src/`.
 
 ## Repo map
 
 | File | What it holds |
 | --- | --- |
-| `microGranny2.ino` | Bootstraps the hardware, SD card, MIDI, and memory state.  Think of it as the conductor orchestrating the other modules. |
-| `SOUND.ino` | Playback engine: loop logic, grain triggering, envelope shaping, and keeping the WaveRP stream on leash. |
-| `MEM.ino` | Compact bit-packed parameter storage for six sounds × multiple presets and banks.  Also contains the parameter metadata tables documented below. |
-| `MIDI.ino` | MIDI parser + note buffer.  Handles legato, sustain, clock sync, and sample-rate tweaks via a 49-entry lookup table. |
-| `SD.ino` | Disk ops: SD initialisation, file indexing, sample playback, and the record-to-WAV routine. |
-| `UI.ino` | Front-panel choreography – LEDs, RGB feedback, display messages, long-press/shift combos, and record mode UI. |
-| `fileNames.ino` | Utility helpers for naming and listing samples on the card. |
+| `src/microGranny2.ino` | Bootstraps the hardware, SD card, MIDI, and memory state.  Think of it as the conductor orchestrating the other modules. |
+| `src/SOUND.ino` | Playback engine: loop logic, grain triggering, envelope shaping, and keeping the WaveRP stream on leash. |
+| `src/MEM.ino` | Compact bit-packed parameter storage for six sounds × multiple presets and banks.  Also contains the parameter metadata tables documented below. |
+| `src/MIDI.ino` | MIDI parser + note buffer.  Handles legato, sustain, clock sync, and sample-rate tweaks via a 49-entry lookup table. |
+| `src/SD.ino` | Disk ops: SD initialisation, file indexing, sample playback, and the record-to-WAV routine. |
+| `src/UI.ino` | Front-panel choreography – LEDs, RGB feedback, display messages, long-press/shift combos, and record mode UI. |
+| `src/fileNames.ino` | Utility helpers for naming and listing samples on the card. |
 
 ## Parameter cheat-sheet (straight from `MEM.ino`)
 
@@ -87,3 +85,7 @@ Those values load and save through `loadPreset`, `savePreset`, `getVar`, and `se
 * ❓ TODO: Document the full color/LED language once the `mg2HW` library is in hand.
 
 Pull requests are welcome if you discover quirks or want to teach the next hacker something new.  Keep it punk, but keep it accurate.
+
+## Toolchain notebook
+
+* `docs/platformio.md` walks through the PlatformIO setup, dependency dance, and the new folder layout.
