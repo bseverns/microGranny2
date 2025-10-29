@@ -1,6 +1,6 @@
 # microGranny2 Field Manual (Fork Edition)
 
-Welcome to my annotated fork of the Bastl Instruments **microGranny 2.0** firmware.  The goal here isn't to rewrite Vaclav's code – it's to document the living daylights out of it so more people can mod, repair, and teach with this tiny granular beast.  Think of this repo as half studio notebook, half roadie handbook.
+Welcome to my annotated fork of the Bastl Instruments **microGranny 2.0** firmware.  The goal here isn't to rewrite Vaclav's code (yet) – for now, it's to document the living daylights out of it so more people can mod, repair, and teach with this tiny granular beast.  Think of this repo as half studio notebook, half roadie handbook.
 
 ## Why this fork exists
 
