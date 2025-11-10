@@ -354,7 +354,15 @@ void proceedCC(unsigned char _number,unsigned char _value){
 
   if(_number==PRESET_BY_CC_BYTE) loadPreset(currentBank,myMap(_value,128,NUMBER_OF_PRESETS));
 
-  // else if(_number==RANDOMIZE_BYTE) randomize(activeSound);
+  else if(_number==RANDOMIZE_BYTE){
+    randomize(activeSound);
+    char rndmLabel[] = "rndm";
+    showForWhile(rndmLabel);
+    hw.unfreezeAllKnobs();
+    renderTweaking(0);
+    renderTweaking(1);
+    hw.freezeAllKnobs();
+  }
 
   else if(_number>=CONTROL_CHANGE_OFFSET && _number<CONTROL_CHANGE_OFFSET_2){
     _number=_number-CONTROL_CHANGE_OFFSET;
