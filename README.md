@@ -21,7 +21,8 @@ Welcome to my annotated fork of the Bastl Instruments **microGranny 2.0** firmwa
 
 * Bring the official `mg2HW` library into `lib/mg2HW/` (or wire `lib_deps` to a fork) so PlatformIO builds without manual copy steps.
 * Document the LED/color language and UI message patterns once `mg2HW` references are in hand.
-* Cross-check any new UI/MIDI behavior on real hardware and document any quirks or regressions.
+* Cross-check the MIDI randomize-by-CC feedback on real hardware and document any quirks or regressions vs upstream.
+* Decide whether to pin exact SdFat/WaveRP versions in `platformio.ini` (or document known-good versions) to avoid build drift.
 
 ## Hardware + tooling checklist
 
@@ -105,3 +106,9 @@ Pull requests are welcome if you discover quirks or want to teach the next hacke
 
 * `docs/platformio.md` walks through the PlatformIO setup, dependency dance, and the new folder layout.
 * `docs/status.md` keeps a short ledger of what this fork has changed and what is still pending.
+
+## Fork changelog (high level)
+
+* 2026-01-28 — Documentation refresh, including fork status ledger and clearer orientation. (`077febb`)
+* 2025-11-09 — MIDI randomize-by-CC now triggers UI feedback + knob resync. (`25eade7`)
+* 2025-10-28 — PlatformIO scaffolding, `src/` reorg, and initial documentation drop. (`9ba1bcb`, `6f49849`)

@@ -14,3 +14,10 @@ Use this page as the short, factual status board for this fork.  It is intention
 * Import the official `mg2HW` sources (or point `lib_deps` at a maintained fork) so the PlatformIO build is reproducible without manual copying.
 * Document the LED/color language and UI message patterns once the `mg2HW` code is available to reference.
 * Validate the fork’s MIDI randomize CC behavior on hardware and document any behavioral differences vs upstream.
+* Decide whether to pin exact SdFat/WaveRP versions (or at least document known-good versions) to avoid build drift.
+
+## Fork changelog (high level)
+
+* 2026-01-28 — Documentation refresh, including the status ledger and clearer fork orientation. (`077febb`)
+* 2025-11-09 — MIDI randomize-by-CC now triggers UI feedback + knob resync. (`25eade7`)
+* 2025-10-28 — PlatformIO scaffolding, `src/` reorg, and initial documentation drop. (`9ba1bcb`, `6f49849`)
