@@ -5,8 +5,23 @@ Welcome to my annotated fork of the Bastl Instruments **microGranny 2.0** firmwa
 ## Why this fork exists
 
 * The original firmware is legendary, but the documentation lives in forum posts, PDF scans, and memories of modular nerds.  This fork collects the most useful breadcrumbs in one place.
-* No functional changes have been made yet.  If you flash this code you get the same behavior as upstream.  The difference is the paper trail.
+* Most changes so far are documentation + build tooling.  The only behavior change in this fork is a small MIDI tweak: randomize-by-CC now triggers the same UI feedback and knob resync you get from the front panel.
 * Every note below comes from reading the code that ships in this repository.  If it isn't in these `.ino` files, it isn't promised here.
+
+## Fork status (snapshot)
+
+**Completed in this fork**
+
+* PlatformIO scaffolding + `src/` reorg so the firmware builds outside the Arduino IDE.
+* Documentation additions: parameter packing notes, PlatformIO walkthrough, and this annotated README.
+* `mg2HW` shim README to document the missing hardware layer dependency.
+* MIDI randomize CC feedback (see `src/MIDI.ino` in `proceedCC()`).
+
+**Open work / next steps**
+
+* Bring the official `mg2HW` library into `lib/mg2HW/` (or wire `lib_deps` to a fork) so PlatformIO builds without manual copy steps.
+* Document the LED/color language and UI message patterns once `mg2HW` references are in hand.
+* Cross-check any new UI/MIDI behavior on real hardware and document any quirks or regressions.
 
 ## Hardware + tooling checklist
 
@@ -89,3 +104,4 @@ Pull requests are welcome if you discover quirks or want to teach the next hacke
 ## Toolchain notebook
 
 * `docs/platformio.md` walks through the PlatformIO setup, dependency dance, and the new folder layout.
+* `docs/status.md` keeps a short ledger of what this fork has changed and what is still pending.

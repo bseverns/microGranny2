@@ -2,6 +2,8 @@
 
 The OG Bastl sources were arranged for the Arduino IDE.  This fork keeps those `.ino` files intact but wires them into a PlatformIO environment so you can build, upload, and lint the firmware without touching the Arduino GUI.
 
+If you want the short project status (what’s changed vs upstream and what’s still pending), see `docs/status.md`.
+
 ## Project layout
 
 PlatformIO expects the firmware entry point under `src/`.  Every `.ino` file from the original release now lives there so the automatic preprocessing still happens exactly like the IDE would do it.  You can still open the project in the Arduino IDE if you really want to – PlatformIO will just ignore the extra metadata files.
@@ -21,7 +23,8 @@ microGranny2/
 │   └── fileNames.ino
 ├── docs/
 │   ├── parameter-map.md
-│   └── platformio.md
+│   ├── platformio.md
+│   └── status.md
 └── README.md
 ```
 

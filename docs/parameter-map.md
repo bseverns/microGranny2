@@ -2,6 +2,8 @@
 
 > This is the nerd corner: how microGranny squeezes eleven parameters × six sounds × multiple presets into EEPROM-friendly bitfields.
 
+For overall project status and remaining work in this fork, see `docs/status.md`.
+
 ## Layout constants
 
 * `NUMBER_OF_SOUNDS = 6`
